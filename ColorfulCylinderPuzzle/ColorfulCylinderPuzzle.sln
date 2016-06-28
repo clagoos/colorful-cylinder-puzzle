@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorfulCylinderPuzzle.Logic", "ColorfulCylinderPuzzle.Logic\ColorfulCylinderPuzzle.Logic.csproj", "{E3785A87-80D0-4F57-B2EB-5D56B67F6EB4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorfulCylinderPuzzle.Neuro", "ColorfulCylinderPuzzle.Neuro\ColorfulCylinderPuzzle.Neuro.csproj", "{8560BA23-4221-4369-9928-D7D9E99CCF91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorfulCylinderPuzzle.Tests", "ColorfulCylinderPuzzle.Tests\ColorfulCylinderPuzzle.Tests.csproj", "{182A9F50-0DF5-47C1-8F51-ACCAE75B346E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{E3785A87-80D0-4F57-B2EB-5D56B67F6EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3785A87-80D0-4F57-B2EB-5D56B67F6EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3785A87-80D0-4F57-B2EB-5D56B67F6EB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8560BA23-4221-4369-9928-D7D9E99CCF91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8560BA23-4221-4369-9928-D7D9E99CCF91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8560BA23-4221-4369-9928-D7D9E99CCF91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8560BA23-4221-4369-9928-D7D9E99CCF91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{182A9F50-0DF5-47C1-8F51-ACCAE75B346E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{182A9F50-0DF5-47C1-8F51-ACCAE75B346E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{182A9F50-0DF5-47C1-8F51-ACCAE75B346E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{182A9F50-0DF5-47C1-8F51-ACCAE75B346E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
