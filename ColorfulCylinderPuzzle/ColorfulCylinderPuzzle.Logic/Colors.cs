@@ -1,7 +1,8 @@
 ﻿namespace ColorfulCylinderPuzzle.Logic
 {
-    public enum Colors
+    public enum Colors : byte
     {
+        None = 0,
         Red,
         Green,
         Blue,
