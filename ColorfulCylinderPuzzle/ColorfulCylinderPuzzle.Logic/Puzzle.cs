@@ -118,7 +118,6 @@ namespace ColorfulCylinderPuzzle.Logic
         /// </summary>
         public bool IsInUpPosition { get; private set; }
 
-        //l: todo: mthod need testing
         public void MakeMoveUp()
         {
             if (IsInUpPosition) throw new InvalidOperationException("Impossible to make move up. Puzzle is already in up position");
@@ -133,7 +132,6 @@ namespace ColorfulCylinderPuzzle.Logic
             }
         }
 
-        //l: todo: mthod need testing
         public void MakeMoveDown()
         {
             if (!IsInUpPosition) throw new InvalidOperationException("Impossible to make move down. Puzzle is already in down position");
@@ -148,7 +146,6 @@ namespace ColorfulCylinderPuzzle.Logic
             }
         }
 
-        //l: todo: mthod need testing
         public void MakeMoveUpperRotateLeft()
         {
             foreach (var row in UpperRows)
@@ -157,7 +154,6 @@ namespace ColorfulCylinderPuzzle.Logic
             }
         }
 
-        //l: todo: mthod need testing
         public void MakeMoveUpperRotateRight()
         {
             foreach (var row in UpperRows)
@@ -166,7 +162,6 @@ namespace ColorfulCylinderPuzzle.Logic
             }
         }
 
-        //l: todo: mthod need testing
         public void MakeMoveLowerRotateLeft()
         {
             foreach (var row in LowerRows)
@@ -175,7 +170,6 @@ namespace ColorfulCylinderPuzzle.Logic
             }
         }
 
-        //l: todo: mthod need testing
         public void MakeMoveLowerRotateRight()
         {
             foreach (var row in LowerRows)
@@ -197,7 +191,7 @@ namespace ColorfulCylinderPuzzle.Logic
         private void RotateRowRight(byte row)
         {
             var lastElement = Map[row, Columns - 1];
-            for (int column = Columns - 1; column > 1; column--)
+            for (int column = Columns - 1; column > 0; column--)
             {
                 Map[row, column] = Map[row, column - 1];
             }
@@ -206,10 +200,15 @@ namespace ColorfulCylinderPuzzle.Logic
 
         public bool IsInIdenticalPosition(Puzzle anotherPuzzle)
         {
+            return IsInIdenticalPosition(anotherPuzzle.Map);
+        }
+
+        public bool IsInIdenticalPosition(byte[,] anotherPuzzleMap)
+        {
             //l: todo: dodać sprawdzenia wierszy i kolumn z nowej klasy sprawdzającej
             for (int row = 0; row < Rows; row++)
                 for (int column = 0; column < Columns; column++)
-                    if (Map[row, column] != anotherPuzzle.Map[row, column])
+                    if (Map[row, column] != anotherPuzzleMap[row, column])
                         return false;
             return true;
         }
