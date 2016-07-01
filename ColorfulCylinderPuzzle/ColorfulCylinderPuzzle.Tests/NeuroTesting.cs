@@ -1,4 +1,5 @@
-﻿using AForge.Neuro;
+﻿using System;
+using AForge.Neuro;
 using AForge.Neuro.Learning;
 using NUnit.Framework;
 
@@ -7,6 +8,8 @@ namespace ColorfulCylinderPuzzle.Tests
     [TestFixture]
     public class NeuroTesting
     {
+        //l: todo: obczaić jeszcze new EvolutionaryLearning();
+
         [Test]
         public void Test()
         {
@@ -24,7 +27,7 @@ namespace ColorfulCylinderPuzzle.Tests
 
             // create neural network
             ActivationNetwork network = new ActivationNetwork(
-                new SigmoidFunction(2),
+                new SigmoidFunction(),
                 2, // two inputs in the network
                 2, // two neurons in the first layer
                 1); // one neuron in the second layer
@@ -46,13 +49,14 @@ namespace ColorfulCylinderPuzzle.Tests
                 // ...
             }
 
-            for (int i = 0; i < 10; i++)
-            {
-                Assert.IsTrue(network.Compute(input[0]) == output[0]);
-                Assert.IsTrue(network.Compute(input[1]) == output[1]);
-                Assert.IsTrue(network.Compute(input[2]) == output[2]);
-                Assert.IsTrue(network.Compute(input[3]) == output[3]);
-            }
+            //var bla = network.Compute(input[0])[0];
+            //var round = Math.Round(network.Compute(input[0])[0], 2);
+            //var result = output[0][0];
+            //Assert.IsTrue(Math.Abs(round - result) < double.Epsilon);
+            Assert.IsTrue(Math.Abs(network.Compute(input[0])[0] - output[0][0]) < 0.03);
+            Assert.IsTrue(Math.Abs(network.Compute(input[1])[0] - output[1][0]) < 0.03);
+            Assert.IsTrue(Math.Abs(network.Compute(input[2])[0] - output[2][0]) < 0.03);
+            Assert.IsTrue(Math.Abs(network.Compute(input[3])[0] - output[3][0]) < 0.03);
         }
     }
 }
