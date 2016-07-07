@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorfulCylinderPuzzle.Neur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorfulCylinderPuzzle.Tests", "ColorfulCylinderPuzzle.Tests\ColorfulCylinderPuzzle.Tests.csproj", "{182A9F50-0DF5-47C1-8F51-ACCAE75B346E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorfulCylinderPuzzle.App", "ColorfulCylinderPuzzle.App\ColorfulCylinderPuzzle.App.csproj", "{ED67EC78-683F-4F8D-9B23-D1434826E5FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{182A9F50-0DF5-47C1-8F51-ACCAE75B346E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{182A9F50-0DF5-47C1-8F51-ACCAE75B346E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{182A9F50-0DF5-47C1-8F51-ACCAE75B346E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED67EC78-683F-4F8D-9B23-D1434826E5FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED67EC78-683F-4F8D-9B23-D1434826E5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED67EC78-683F-4F8D-9B23-D1434826E5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED67EC78-683F-4F8D-9B23-D1434826E5FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

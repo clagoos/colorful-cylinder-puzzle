@@ -6,5 +6,6 @@ namespace ColorfulCylinderPuzzle.Neuro
 {
     public class Network
     {
+        //private const int inputNeurons = 
     }
 }
