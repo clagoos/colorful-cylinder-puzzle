@@ -59,7 +59,7 @@
             this.buttonUpDown.TabIndex = 1;
             this.buttonUpDown.Text = "Up / Down";
             this.buttonUpDown.UseVisualStyleBackColor = true;
-            this.buttonUpDown.Click += new System.EventHandler(this.buttonUp_Click);
+            this.buttonUpDown.Click += new System.EventHandler(this.buttonUpDown_Click);
             // 
             // buttonUpRotateLeft
             // 

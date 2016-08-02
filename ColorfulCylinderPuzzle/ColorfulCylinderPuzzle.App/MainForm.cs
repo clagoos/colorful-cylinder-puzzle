@@ -87,7 +87,7 @@ namespace ColorfulCylinderPuzzle.App
             textBoxLog.Clear();
         }
 
-        private void buttonUp_Click(object sender, EventArgs e)
+        private void buttonUpDown_Click(object sender, EventArgs e)
         {
             if (puzzle.IsInUpPosition)
             {
