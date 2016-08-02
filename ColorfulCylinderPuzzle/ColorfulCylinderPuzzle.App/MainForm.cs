@@ -21,21 +21,22 @@ namespace ColorfulCylinderPuzzle.App
             colorBrushes = InitializeColorBrushes();
         }
 
-        private void InitializeRectangles(int panelWidth, int panelHeight)
+        private static Rectangle[,] InitializeRectangles(int panelWidth, int panelHeight, int puzzleRows, int puzzleColumns)
         {
-            puzzlePieces = new Rectangle[puzzle.Rows, puzzle.Columns];
-            var singleItemWidth = panelWidth / puzzle.Columns;
-            var singleItemHeight = panelHeight / puzzle.Rows;
+            var rectangles = new Rectangle[puzzleRows, puzzleColumns];
+            var singleItemWidth = panelWidth / puzzleColumns;
+            var singleItemHeight = panelHeight / puzzleRows;
             var size = new Size(singleItemWidth, singleItemHeight);
-            for (int row = 0; row < puzzle.Rows; row++)
+            for (int row = 0; row < puzzleRows; row++)
             {
-                for (int column = 0; column < puzzle.Columns; column++)
+                for (int column = 0; column < puzzleColumns; column++)
                 {
                     var position = new Point(column * singleItemWidth, row * singleItemHeight);
-                    puzzlePieces[row, column] = new Rectangle(position, size);
-                    puzzlePieces[row, column].Inflate(-2, -2);
+                    rectangles[row, column] = new Rectangle(position, size);
+                    rectangles[row, column].Inflate(-2, -2);
                 }
             }
+            return rectangles;
         }
 
         private static Dictionary<Colors, SolidBrush> InitializeColorBrushes()
@@ -51,7 +52,7 @@ namespace ColorfulCylinderPuzzle.App
             var panel = sender as Panel;
             if (panel == null) return;
             if (puzzlePieces == null)
-                InitializeRectangles(panel.Width, panel.Height);
+                puzzlePieces = InitializeRectangles(panel.Width, panel.Height, puzzle.Rows, puzzle.Columns);
             for (int row = 0; row < puzzle.Rows; row++)
             {
                 for (int column = 0; column < puzzle.Columns; column++)
@@ -63,10 +64,73 @@ namespace ColorfulCylinderPuzzle.App
             }
         }
 
-        //do odświeżania panelu, np po kliknięciu gdzieś:
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    panel1.Refresh();
-        //}
+        private void TryMakeMoveAndRefresh(Action move)
+        {
+            try
+            {
+                move.Invoke();
+            }
+            catch (InvalidOperationException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            panelPuzzle.Refresh();
+        }
+
+        private void LogMessage(string message)
+        {
+            textBoxLog.AppendText($"{DateTime.Now.ToString("HH:mm:ss")} - {message}\n");
+        }
+
+        private void ClearLog()
+        {
+            textBoxLog.Clear();
+        }
+
+        private void buttonUp_Click(object sender, EventArgs e)
+        {
+            if (puzzle.IsInUpPosition)
+            {
+                TryMakeMoveAndRefresh(puzzle.MakeMoveDown);
+                LogMessage("Down");
+            }
+            else
+            {
+                TryMakeMoveAndRefresh(puzzle.MakeMoveUp);
+                LogMessage("Up");
+            }
+        }
+
+        private void buttonUpRotateLeft_Click(object sender, EventArgs e)
+        {
+            TryMakeMoveAndRefresh(puzzle.MakeMoveUpperRotateLeft);
+            LogMessage("Rotate Up Left");
+        }
+
+        private void buttonUpRotateRight_Click(object sender, EventArgs e)
+        {
+            TryMakeMoveAndRefresh(puzzle.MakeMoveUpperRotateRight);
+            LogMessage("Rotate Up Right");
+        }
+
+        private void buttonDownRotateLeft_Click(object sender, EventArgs e)
+        {
+            TryMakeMoveAndRefresh(puzzle.MakeMoveLowerRotateLeft);
+            LogMessage("Rotate Down Left");
+        }
+
+        private void buttonDownRotateRight_Click(object sender, EventArgs e)
+        {
+            TryMakeMoveAndRefresh(puzzle.MakeMoveLowerRotateRight);
+            LogMessage("Rotate Down Right");
+        }
+
+        private void buttonClearPuzzle_Click(object sender, EventArgs e)
+        {
+            puzzle.SetUpPuzzleInUpperSolvedPosition();
+            ClearLog();
+            LogMessage("Puzzle reset to upper solved position!");
+            panelPuzzle.Refresh();
+        }
     }
 }
