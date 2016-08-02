@@ -132,5 +132,14 @@ namespace ColorfulCylinderPuzzle.App
             LogMessage("Puzzle reset to upper solved position!");
             panelPuzzle.Refresh();
         }
+        //TODO:
+        /*
+         * 1. Move ClearPuzzle action to menu
+         * 2. Add SetPuzzleInSpecificPosition action (probably need another window with color dropdowns or sth like that)
+         * 3. Change log from text to objects (text in textBox can stay, just log more info into separate List of log events or sth)
+         * 4. Add some diagnostics based on log messages like performed actions count
+         * 5. Add StartRecordActions, StopRecordActions, and Go button which will allow to record set of action and repeat it easily :)
+         */
+
     }
 }
