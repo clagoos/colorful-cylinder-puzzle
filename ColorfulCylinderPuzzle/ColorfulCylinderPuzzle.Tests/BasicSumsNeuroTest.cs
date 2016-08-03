@@ -1,10 +1,11 @@
-﻿using System;
-using AForge.Neuro;
+﻿using AForge.Neuro;
 using AForge.Neuro.Learning;
 using NUnit.Framework;
+using System;
 
 namespace ColorfulCylinderPuzzle.Tests
 {
+    [Ignore("This is test instead of console app just for easy of use. For manual launch only.")]
     [TestFixture]
     public class BasicSumsNeuroTest
     {

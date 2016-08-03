@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicSumsNeuroTest.cs" />
+    <Compile Include="DeepNetworkTest.cs" />
     <Compile Include="NeuroTest.cs" />
     <Compile Include="XorNeuroTest.cs" />
     <Compile Include="PuzzleMoveTests.cs" />
